@@ -20,7 +20,7 @@ public class Combo {
             System.out.println("You counter with a jab stunning your opponent");
             jab += 1;
         }
-        if (firstChoice == "3") {
+        if (firstChoice.equals("3")) {
             System.out.println("You slip the punch giving you next shot more power");
             slip += 2;
         } else {
@@ -34,13 +34,13 @@ public class Combo {
         System.out.println("3. Kick");
 
         String secondChoice = scanner.nextLine();
-        if (secondChoice == "1") {
+        if (secondChoice.equals("1")) {
             jab += 1;
             System.out.println("you jab was not enough to Ko, you must Strike again");
             System.out.println("1. Jab");
             System.out.println("2. Cross");
             String secondChoiceB = scanner.nextLine();
-            if (secondChoiceB == "1") {
+            if (secondChoiceB.equals("1")) {
                 System.out.println("You land another jab knocking out you oponent in a clean manner");
                 jab++;
             } else {
@@ -49,12 +49,25 @@ public class Combo {
             }
         }
 
-        if (secondChoice == "2") {
+        if (secondChoice.equals("2")) {
             cross++;
             System.out.print("You throw a great cross Knocking out you opponent");
         } else {
             System.out.print("You throw a great Kick puting you opponent to sleep");
             kick++;
         }
+        if (jab > 1) {
+            boolean comboOne = true;
+        }
+        if (jab > 2) {
+            boolean comboTwo = true;
+        }
+        if (slip > 0 || jab > 0 || cross > 0) {
+            boolean comboThree = true;
+        }
+
+        double score = 0;
+        score = ((3 * kick) + (2 * cross) + (jab)) * slip;
+
     }
 }
