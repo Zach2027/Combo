@@ -9,6 +9,10 @@ public class Combo {
         int slip = 0;
         int kick = 0;
         int power = 0;
+        int totalCombo = 1;
+        boolean comboOne = false;
+        boolean comboTwo = false;
+        boolean comboThree = false;
 
         System.out.println("A guy walks up to you and thows a punch, what would you like to do?");
         System.out.println("1. Jab");
@@ -52,22 +56,36 @@ public class Combo {
         if (secondChoice.equals("2")) {
             cross++;
             System.out.print("You throw a great cross Knocking out you opponent");
-        } else {
+        }
+        if (secondChoice.equals("3")) {
             System.out.print("You throw a great Kick puting you opponent to sleep");
             kick++;
         }
         if (jab > 1) {
-            boolean comboOne = true;
+            comboOne = true;
         }
         if (jab > 2) {
-            boolean comboTwo = true;
+            comboTwo = true;
         }
         if (slip > 0 || jab > 0 || cross > 0) {
-            boolean comboThree = true;
+            comboThree = true;
         }
 
         double score = 0;
+
         score = ((3 * kick) + (2 * cross) + (jab)) * slip;
 
+        if (comboOne == true) {
+            totalCombo += 0.5;
+        }
+        if (comboTwo == true) {
+            totalCombo += 0.5;
+        }
+        if (comboThree == true) {
+            totalCombo += 1;
+        }
+        score = score * totalCombo;
+
+        System.out.print("Your total Combo got you " + score + " points");
     }
 }
