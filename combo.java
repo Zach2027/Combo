@@ -6,7 +6,7 @@ public class Combo {
         Scanner scanner = new Scanner(System.in);
         int jab = 0;
         int cross = 0;
-        int slip = 0;
+        int slip = 1;
         int kick = 0;
         int power = 0;
         int totalCombo = 1;
@@ -23,12 +23,11 @@ public class Combo {
         if (firstChoice.equals("1")) {
             System.out.println("You counter with a jab stunning your opponent");
             jab += 1;
-        }
-        if (firstChoice.equals("3")) {
+        } else if (firstChoice.equals("3")) {
             System.out.println("You slip the punch giving you next shot more power");
-            slip += 2;
+            slip += 1;
         } else {
-            System.out.print("you were too slow and got hit in the head decressing future power");
+            System.out.println("you were too slow and got hit in the head decressing future power");
             slip -= 0.5;
         }
 
@@ -39,7 +38,7 @@ public class Combo {
 
         String secondChoice = scanner.nextLine();
         if (secondChoice.equals("1")) {
-            jab += 1;
+            jab++;
             System.out.println("you jab was not enough to Ko, you must Strike again");
             System.out.println("1. Jab");
             System.out.println("2. Cross");
@@ -67,25 +66,25 @@ public class Combo {
         if (jab > 2) {
             comboTwo = true;
         }
-        if (slip > 0 || jab > 0 || cross > 0) {
+        if (slip > 0 && jab > 0 && cross > 0) {
             comboThree = true;
         }
 
         double score = 0;
-
         score = ((3 * kick) + (2 * cross) + (jab)) * slip;
 
-        if (comboOne == true) {
+        if (comboOne) {
             totalCombo += 0.5;
         }
-        if (comboTwo == true) {
+        if (comboTwo) {
             totalCombo += 0.5;
         }
-        if (comboThree == true) {
+        if (comboThree) {
             totalCombo += 1;
         }
         score = score * totalCombo;
 
         System.out.print("Your total Combo got you " + score + " points");
+        System.out.print(score + totalCombo);
     }
 }
