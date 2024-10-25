@@ -52,11 +52,10 @@ public class Combo {
             }
         }
 
-        if (secondChoice.equals("2")) {
+        else if (secondChoice.equals("2")) {
             cross++;
             System.out.print("You throw a great cross Knocking out you opponent");
-        }
-        if (secondChoice.equals("3")) {
+        } else if (secondChoice.equals("3")) {
             System.out.print("You throw a great Kick puting you opponent to sleep");
             kick++;
         }
@@ -73,10 +72,9 @@ public class Combo {
         double score = 0;
         score = ((3 * kick) + (2 * cross) + (jab)) * slip;
 
-        if (comboOne) {
-            totalCombo += 0.5;
-        }
         if (comboTwo) {
+            totalCombo += 1;
+        } else if (comboOne) {
             totalCombo += 0.5;
         }
         if (comboThree) {
@@ -85,6 +83,6 @@ public class Combo {
         score = score * totalCombo;
 
         System.out.print("Your total Combo got you " + score + " points");
-        System.out.print(score + totalCombo);
+
     }
 }
